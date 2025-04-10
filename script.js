@@ -53,13 +53,31 @@ function fetchWeatherDataByCity(city) {
             const longitude = data[0].lon;
             document.getElementById("headline").innerHTML = `Weather in ${city}`;
             fetchWeatherData(latitude, longitude);
+            saveCity();
         })
         .catch(error => {
             console.error("Error retreiving weather data:", error);
         });
 }
 
+function init() {
+    chrome.storage.local.get("city", function (result) {
+        if (result.city) {
+            document.getElementById("city").value = result.city;
+            fetchWeatherDataByCity(result.city);
+        }
+    });
+}
+
+function saveCity() {
+    const city = document.getElementById("city").value;
+    chrome.storage.local.set({ city: city }, function() {
+        console.log('Saved city:', city);
+      });
+}
+
 document.getElementById("getWeather").addEventListener("click", function() {
     const city = document.getElementById("city").value;
     fetchWeatherDataByCity(city);
 });
+init();
