@@ -1,12 +1,47 @@
 body {
+    width: 350px;
     border-radius: 10px;
     background-color: rgb(52, 53, 55);
   }
 
-h4 {
-    color: rgb(204, 99, 39);
+#city, #getWeather {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
 }
 
-div {
+#city {
+    width: 70%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: none;
+}
+
+#getWeather {
+    width: 25%;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: rgb(236, 127, 64);
+    border-radius: 10px;
+    border: none;
+}
+
+#headline {
+    color: rgb(236, 127, 64);
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+#result {
+    background-color: rgb(34, 35, 36);
+    border-radius: 10px;
+    padding: 5px 5px 15px 5px;
+}
+
+#wind, #temperature {
     color: white;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 10px;
 }
