@@ -3,14 +3,14 @@ body {
     background-color: rgb(52, 53, 55);
   }
 
-#city, #getWeather {
+#locationField, #getWeather {
     display: inline-block;
     vertical-align: middle;
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#city {
+#locationField {
     width: 65%;
     padding: 8px;
     box-sizing: border-box;

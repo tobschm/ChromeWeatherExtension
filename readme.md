@@ -7,7 +7,5 @@ Open Meteo and Nominatim are used because they require no API-keys.
 The city name is stored in the local Chrome storage, so that it is still entered when the extension is used the next time.
 
 # Planned features
-* Use current location
 * Better error handling
-* ~~Add weather status (sunny, cloudy, etc)~~
-* Add custom icons
+* ~~Add weather status (sunny, cloudy, etc)~~ => done

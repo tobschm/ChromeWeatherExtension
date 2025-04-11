@@ -22,6 +22,7 @@ async function fetchWeatherData(latitude, longitude) {
             document.getElementById("wind").innerHTML = `Wind: ${windspeed} km/h ${direction}`;
         })
         .catch(error => {
+            displayError(error.message);
             console.error("Error retreiving weather data:", error);
         });
 }
@@ -43,38 +44,46 @@ function fetchWeatherDataByCity(city) {
             saveCity();
         })
         .catch(error => {
+            displayError(error.message);
             console.error("Error retreiving weather data:", error);
         });
 }
 
+function displayError(message) {
+    document.getElementById("headline").innerHTML = message;
+    document.getElementById("temperature").innerHTML = ``;
+    document.getElementById("weatherCode").innerHTML = ``;
+    document.getElementById("wind").innerHTML = ``;
+}
+
 // get city from local storage and fetch weather data
 function init() {
-    chrome.storage.local.get("city", function (result) {
-        if (result.city) {
-            document.getElementById("city").value = result.city;
-            fetchWeatherDataByCity(result.city);
+    chrome.storage.local.get("location", function (result) {
+        if (result.location) {
+            document.getElementById("locationField").value = result.location;
+            fetchWeatherDataByCity(result.location);
         }
     });
 }
 
 function saveCity() {
-    const city = document.getElementById("city").value;
-    chrome.storage.local.set({ city: city }, function () {
-        console.log('Saved city:', city);
+    const location = document.getElementById("locationField").value;
+    chrome.storage.local.set({ location: location }, function () {
+        console.log('Saved city:', location);
     });
 }
 
 // Event listeners
 
 document.getElementById("getWeather").addEventListener("click", function () {
-    const city = document.getElementById("city").value;
-    fetchWeatherDataByCity(city);
+    const location = document.getElementById("locationField").value;
+    fetchWeatherDataByCity(location);
 });
 
-document.getElementById("city").addEventListener("keydown", function (event) {
+document.getElementById("locationField").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        const city = event.target.value;
-        fetchWeatherDataByCity(city);
+        const location = event.target.value;
+        fetchWeatherDataByCity(location);
     }
 });
 
