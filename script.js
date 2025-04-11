@@ -80,4 +80,11 @@ document.getElementById("getWeather").addEventListener("click", function() {
     const city = document.getElementById("city").value;
     fetchWeatherDataByCity(city);
 });
+
+document.getElementById("city").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        const city = event.target.value;
+        fetchWeatherDataByCity(city);
+    }
+});
 init();
