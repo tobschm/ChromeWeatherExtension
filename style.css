@@ -46,7 +46,7 @@ body {
     padding: 5px 5px 15px 5px;
 }
 
-#wind, #temperature {
+#wind, #weatherCode, #temperature {
     color: white;
     font-size: 15px;
     margin-left: 10px;

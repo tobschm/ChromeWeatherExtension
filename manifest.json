@@ -1,6 +1,6 @@
 {
     "name": "Weather App",
-    "version": "1.0",
+    "version": "1.2",
     "manifest_version": 3,
     "description": "A simple weather app that fetches data from Open-Meteo.",
     "author": "Tobias Schmelzle",
