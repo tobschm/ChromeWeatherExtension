@@ -1,4 +1,4 @@
-import { mapWindDirection, mapWeatherCode } from './mappings.js';
+import { mapWindDirection, mapWeatherCode, changeResultCss } from './mappings.js';
 
 async function fetchWeatherData(latitude, longitude) {
     const url = new URL("https://api.open-meteo.com/v1/forecast");
@@ -14,6 +14,7 @@ async function fetchWeatherData(latitude, longitude) {
             console.log(data.current_weather);
             const temp = data.current_weather.temperature;
             const weatherDescription = mapWeatherCode(data.current_weather.weathercode);
+            changeResultCss(data.current_weather.weathercode);
             const windspeed = data.current_weather.windspeed;
             const direction = mapWindDirection(data.current_weather.winddirection);
 

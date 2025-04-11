@@ -54,3 +54,28 @@ export function mapWeatherCode(code) {
 
     return weatherCodes[code] || "Unknown weather code";
 }
+
+// changes the shadow of the result element according to the weather code
+export function changeResultCss(weatherCode) {
+    if(weatherCode == 0 ) { // sunny
+        document.getElementById("result").style.boxShadow = "0 0 25px rgb(197, 138, 11)";
+    }
+    if(weatherCode > 1 && weatherCode <= 48) { // cloudy
+        document.getElementById("result").style.boxShadow = "0 0 25px rgba(204, 203, 203, 0.5)";
+    }
+    if(weatherCode > 48 && weatherCode <= 67) { // rain
+        document.getElementById("result").style.boxShadow = "0 0 25px rgba(30, 221, 221, 0.5)";
+    }
+    if(weatherCode > 67 && weatherCode <= 77) { // snow
+        document.getElementById("result").style.boxShadow = "0 0 45px rgba(255, 255, 255, 0.5)";
+    }
+    if(weatherCode > 77 && weatherCode <= 82) { // heavy rain
+        document.getElementById("result").style.boxShadow = "0 0 45px rgba(30, 221, 221, 0.5)";
+    }
+    if(weatherCode > 82 && weatherCode <= 86) { // heavy snow
+        document.getElementById("result").style.boxShadow = "0 0 45px rgba(255, 255, 255, 0.5)";
+    }
+    if(weatherCode > 86) { // thunderstorm
+        document.getElementById("result").style.boxShadow = "0 0 25px rgba(154, 149, 41, 0.5)";
+    }
+}
